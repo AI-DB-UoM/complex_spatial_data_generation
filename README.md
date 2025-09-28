@@ -8,5 +8,10 @@ This project aims to build an interpretable and tool-augmented LLM-based system 
 ## Setup
 
 ### Prerequisite
+
+1. Python 3.11 or higher
+2. An venv is recommended
+3. An access key to Google Maps API" `google_maps_api_key`
+4. An access key  to OpenaI API: `openai_api_key`
    
    
