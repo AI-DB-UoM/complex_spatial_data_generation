@@ -11,7 +11,7 @@ This project aims to build an interpretable and tool-augmented LLM-based system 
 ## Dataset Generation Workflow
 We employ a modular, scalable dataset generation workflow outlines as the follow:
 
-[Dataset Construction](images/DatasetConstruction_Workflow.pdf)
+![Dataset Construction](images/DatasetConstruction_Workflow.pdf)
 
 ## System Architecture
 Out LLM planner:
