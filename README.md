@@ -11,12 +11,12 @@ This project aims to build an interpretable and tool-augmented LLM-based system 
 ## Dataset Generation Workflow
 We employ a modular, scalable dataset generation workflow outlines as the follow:
 
-[Dataset Construction](images/DatasetConstruction_Workflow.pdf)
+![Dataset Construction](images/datasetConstruction_workflow.png)
 
 ## System Architecture
 Out LLM planner:
 
-[System Architecture](images/System_Design.pdf)
+![System Architecture](images/system_design.png)
 
 ## Setup
 
@@ -65,8 +65,10 @@ Run all code blok=cks in `notebook/experiment_graphs.ipynb`
 
 ## Experiments
 
-### Case Study 
-The following map shows an instance in our benchmark dataset dataset. The query is: 
+### Benchmark Dataset Demo
+The following map shows an instance in our benchmark dataset dataset. The query is: "Find me a fitness center with a swimmming pool along the way from Bunnings Box Hill to Elven Tigers.". The computed polyline in blue indicate an appropriate driving route from the origin to the destination. The 5 green landmarks serve as the ground truth to the query.
+
+![case_study](images/case_study.png)
 
 ### Experiments Results
 We evaluate our LLM Planner on 180 tests data from our benchmark dataset. Below are experiment results on 4 standard metrics:
