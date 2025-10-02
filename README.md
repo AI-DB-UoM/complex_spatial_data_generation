@@ -1,9 +1,9 @@
 # LLM-Enhanced Processing for Complex Spatial Queries
 
 This project aims to build an interpretable and tool-augmented LLM-based system for answering complex spatial queries. This repo contains the code implementation for:
-  - A Melbourne-scale geospatial QA (Question-ansering) benchmark dataset built on Google Maps data.
-  - A 2-stage LLM-planner for reliable, verifiable Complec Spatial Query (CSQ) decomposition.
-  - A small-scale experiments (with 180 test queries) on the LLM-planner performance against our benchmark dataset.
+  - A Melbourne-scale geospatial QA (Question-answering) benchmark dataset built on Google Maps data.
+  - A 2-stage LLM Planner for reliable, verifiable Complex Spatial Query (CSQ) decomposition.
+  - A small-scale experiments (with 180 test queries) on the LLM Planner performance against our benchmark dataset.
 
 ## Dataset Generation Workflow
 We employ a modular, scalable dataset generation workflow outlines as the follow:
@@ -26,13 +26,15 @@ We then fill in the [Origin], [Destination] and [Waypoint] using the locations s
 The filled-in prototypes are further semantically-augmented using an LLM.
 
 ### Ground-truth Derivation
-Ground-truth are derived by;
+Ground-truth are derived by:
   1. Geospatially, we call Google Maps APIs to obtain correct answers.
     
-  2. Semantically, we computer cosine-similarity between query embedding and the embedding of google maps user reviews.
+  2. Semantically, we compute cosine-similarity between query embedding and the embedding of google maps user reviews.
+
+We select the top-5 similar places as ground-truth for a CSQ.
 
 ## System Architecture
-We aim to guide our LLM planner to learn the reasoning steps for CSQ decompistion. This is achieved by few-shot prompting without any training. The objective of our system is to generate a set of ordered, correct and verifiable sub-queries with an input CSQ.
+We aim to guide our LLM planner to learn the reasoning steps for CSQ decompistion. This is achieved by few-shot prompting without any training. The objective of our system is to generate a set of ordered, correct and verifiable sub-queries for an input CSQ.
 
 ![System Architecture](images/system_design.png)
 
@@ -44,14 +46,15 @@ In the first stage, we demonstrate a top-down reasoning process. This is carried
   – entity: the parameters required to accomplish the intent
 
 ### Stage 2: Nested Query Planner
-This stage is to inearize the nested sub-queries back to a sequential, non-repeated list. This is achieved by a single prompt. Prompt in this stage involves a set of fixed instructions that asks the LLMs to:
+This stage is to linearize the nested sub-queries back to a sequential, non-repeated list. This is achieved by a single prompt. Prompt in this stage involves a set of fixed instructions that asks the LLMs to:
+
   – Assign each sub-query with a unique "id".
   
   – Refer to previous sub-query outputs with "$id" instead of nesting.
   
   – List the most deeply nested sub-queries first, then proceed outward so only later items can reference earlier ones.
   
-  – Remove any duplicated steps within the nested structure.Query: Identify all hospitals that are within 3 km of any school located within 500 m of the Yarra River
+  – Remove any duplicated steps within the nested structure.
 
 ## Setup
 
@@ -97,7 +100,7 @@ Run all code blocks in `notebook/dataset_construction.ipynb`
 Run all code blocks in `notebook/system_implementation.ipynb`
 
 ### 5. Run Experiments
-Run all code blok=cks in `notebook/experiment_graphs.ipynb`
+Run all code blocks in `notebook/experiment_graphs.ipynb`
 
 
 ## Experiments
