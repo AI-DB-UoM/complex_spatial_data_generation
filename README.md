@@ -1,8 +1,3 @@
-# Table of Content
-
-- [Dataset Generation Workflow](#Dataset Generation Workflow)
-
-
 # LLM-Enhanced Processing for Complex Spatial Queries
 
 This project aims to build an interpretable and tool-augmented LLM-based system for answering complex spatial queries. This repo contains the code implementation for:
