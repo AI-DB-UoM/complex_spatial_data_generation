@@ -1,1 +1,5 @@
 .env
+notebook/.ipynb_checkpoints/
+notebook/cache/
+notebook/data/
+notebook/.jupyter_ystore.db
